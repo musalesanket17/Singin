@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MensSections</title>
+    <style>
+        #container{
+            height:250px;
+            width:35%;
+            margin-top: 20px;
+
+        }
+        #form>input{
+            margin-top: 5px;;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <form id="form">
+            <input id="img" type="text" placeholder="Enter Img URL">
+            <input id="name" type="text" placeholder="Enter Product Name">
+            <input id="price" type="text" placeholder="Enter Price">
+          
+            <input id="btn" type="submit"/>
+        </form>
+    </div>
+   
+</body>
+</html>
+<script>
+
+    document.querySelector("form").addEventListener("submit",fun1)
+    var arr=JSON.parse(localStorage.getItem("productinfo"))||[]
+    function fun1(){
+        event.preventDefault()
+        // var arr=[];
+
+        var obj={
+            productimg:form.img.value,
+            productname:form.name.value,
+            productrprice:form.price.value,
+          
+        }
+         arr.push(obj)
+         localStorage.setItem("productinfo",JSON.stringify(arr))
+      }
+</script>

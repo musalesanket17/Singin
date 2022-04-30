@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNUP AND LOGIN USING LS</title>
+    <style>
+       #main{
+           height: 350px;
+           width:35%;
+           border: 1px solid black;
+           margin: auto;
+         
+
+        }
+        #form{
+           text-align: center;
+        }
+        #btn{
+            margin-top: 20px;
+            padding: 5px 30px 5px 30px;
+            border-radius: 5px;
+            border: 0px;
+            background-color: rgb(146, 146, 146);
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <form id="form">
+            <h3>SIGNUP</h3>
+            <h5>Enter-Email</h5>
+            <input id="email" type="text" placeholder="Enter-Email">
+            <h5>Enter-Password</h5>
+            <input id="password" type="password" placeholder="Enter-Password">
+            <h5>Enter-Mobile Number</h5>
+            <input id="number" type="number" placeholder="Enter-Mobile Number">
+            <input id="btn" type="submit"/>
+        </form>
+    </div>
+   
+   
+</body>
+</html>
+<script>
+    var userArr=JSON.parse(localStorage.getItem("userList"))|| []
+   
+     document.querySelector("#form").addEventListener("submit",fun1)
+     function fun1(){
+         event.preventDefault()
+    
+          var obj={
+               userEmail:form.email.value,
+               userpassword:form.password.value,
+               userNUmber:form.number.value,
+          }
+         userArr.push(obj)
+         localStorage.setItem("userList",JSON.stringify(userArr))
+       
+
+         
+     }
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MensFrontend</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(4,auto);
+            gap: 30px;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>MEN'S</h1>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script>
+    var arr=JSON.parse(localStorage.getItem("productinfo"))
+    var cart=JSON.parse(localStorage.getItem("cart")) || []
+    arr.forEach(function (el){
+        var box=document.createElement("div")
+
+        var img=document.createElement("img")
+        img.setAttribute("src",el.productimg)
+
+        var productname=document.createElement("h5")
+        productname.innerText=el.productname
+        var productprice=document.createElement("h5")
+        productprice.innerText=el.productrprice
+
+        var btn=document.createElement("button")
+        btn.innerText="Add to Cart"
+        btn.addEventListener("click",function (){
+              cart(el)
+        })
+
+        box.append(img,productname,productprice,btn)
+        document.querySelector("#container").append(box)
+    
+     
+         
+
+    })
+ }
+
+    function cart(el){
+             cart.push(el)
+             alert("Product added Successfully")
+             localStorage.setItem("cart",JSON.stringify(cart))
+    }
+</script>

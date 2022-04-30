@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN </title>
+    <style>
+       #main{
+           height: 350px;
+           width:35%;
+           border: 1px solid black;
+           margin: auto;
+         
+
+        }
+        #form{
+           text-align: center;
+        }
+        #btn{
+            margin-top: 20px;
+            padding: 5px 30px 5px 30px;
+            border-radius: 5px;
+            border: 0px;
+            background-color: rgb(146, 146, 146);
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <form id="form">
+            <h3>LOGIN</h3>
+            <h5>Enter-Email</h5>
+            <input id="email" type="text" placeholder="Enter-Email">
+            <h5>Enter-Password</h5>
+            <input id="password" type="password" placeholder="Enter-Password">
+            <h5>Enter-Mobile Number</h5>
+          
+            <input id="btn" type="submit"/>
+        </form>
+    </div>
+   
+   
+</body>
+</html>
+<script>
+
+var singup=JSON.parse(localStorage.getItem("singup"))|| []
+   
+ var form=document.querySelector("form")
+ form.addEventListener("submit",function (event){
+
+   
+       event.preventDefault()
+  
+        var obj={
+             userEmail:form.email.value,
+             userpassword:form.password.value,
+            
+        }
+     if(singup==null){
+         alert("Create Your Account")
+     }
+     else if(singup.email==obj.userEmail && singup.password==obj.userpassword){
+           alert("Log In Successfull")
+           localStorage.setItem("logindata",JSON.stringify(obj))
+           window.location.href="Navbar.html"
+     }
+     else{
+         alert("User Does Not Exist")
+     }
+     
+       
+   
+ })
+
+ 
+</script>
